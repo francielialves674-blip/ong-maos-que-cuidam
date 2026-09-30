@@ -79,3 +79,19 @@ footer { background-color: var(--cor-neutra-escura); color: var(--cor-fundo); te
 }
 @media (min-width: 768px) { .card { grid-column: span 6; } }
 @media (min-width: 1024px) { .card { grid-column: span 4; } }
+
+/* Acessibilidade - Foco visível WCAG 2.1 */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+  outline: 2px solid #005fcc;
+  outline-offset: 3px;
+}
+
+.botao:focus {
+  outline: 3px solid #000;
+  outline-offset: 4px;
+}
+
+/* Garante que o foco nunca suma */
+*:focus-visible {
+  outline: 2px solid #005fcc;
+}
