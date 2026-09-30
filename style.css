@@ -95,3 +95,8 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 *:focus-visible {
   outline: 2px solid #005fcc;
 }
+/* MENU SEMPRE VISÍVEL NO DESKTOP */
+#menu-nav {
+  display: flex !important;
+  gap: 20px;
+}
