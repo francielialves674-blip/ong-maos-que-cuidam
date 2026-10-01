@@ -25,3 +25,13 @@ Projeto extensionista Cruzeiro do Sul - Desenvolvimento de um site para cadastro
 1. Clone o repositório: `git clone https://github.com/francieliAlves674-blip/ong-maos-que-cuidam.git`
 2. Instale: `npm install`
 3. Rode: `npm run dev`
+
+## 🚀 Estratégia de Deploy e Roteamento
+
+Este projeto é uma SPA (Single Page Application) feita com Vite.
+
+- **Build:** `npm run build` gera arquivos minificados com Vite.
+- **Roteamento:** Utiliza History API. Para garantir que rotas internas não deem 404 após o deploy, foi configurado o `vercel.json` com `rewrites` apontando todas as rotas para `/index.html`.
+- **Alternativa:** Poderia usar "hash routing" (ex: `/#/projetos`) que é mais simples para estático, mas optei por History API + rewrites para URLs mais limpas.
+- **Imagens:** Uso WebP com fallback em `<picture>` e SVG para melhor performance e consumo de dados.
+- **Acessibilidade:** Validada com navegação por teclado (TAB), foco visível, landmarks e WAI-ARIA em componentes dinâmicos.
