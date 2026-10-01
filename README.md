@@ -2,7 +2,7 @@
 
 Projeto extensionista Cruzeiro do Sul - Desenvolvimento de um site para cadastro de voluntários e divulgação de projetos sociais.
 
-**Site no ar:** https://ong-maos-que-cuidam.vercel.app
+ 🔗 Site no ar: https://ong-maos-que-cuidam.vercel.app
 **Aluna:** Francieli Alves - Análise e Desenvolvimento de Sistemas
 
 ## 🚀 Tecnologias
