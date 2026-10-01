@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voluntário - Mãos que Cuidam</title>
+<style>
+:root{--verde:#2E7D32;--amarelo:#FFC107;--foco:#005FCC}*{box-sizing:border-box;font-family:Arial;margin:0;padding:0}
+.skip-link{position:absolute;left:-9999px}.skip-link:focus{left:10px;top:10px;background:var(--verde);color:#fff;padding:8px;z-index:9999}
+:focus-visible{outline:3px solid var(--foco);outline-offset:3px}
+header{background:var(--verde);color:#fff;padding:1rem;display:flex;justify-content:space-between;align-items:center}
+nav ul{list-style:none;display:flex;gap:1rem} nav a{color:#fff;text-decoration:none;font-weight:bold;padding:6px}
+main{padding:2rem;max-width:600px;margin:auto} label{display:block;margin-top:1rem;font-weight:bold} input,select,textarea{width:100%;padding:10px;margin-top:4px;border:2px solid #888}.erro{color:#b00020;font-size:.9rem}.toast{position:fixed;top:20px;right:20px;background:var(--verde);color:#fff;padding:1rem;display:none}
+footer{background:#222;color:#fff;text-align:center;padding:1rem;margin-top:2rem}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header><h1>Mãos que Cuidam</h1><nav aria-label="Principal"><ul><li><a href="index.html">Início</a></li><li><a href="projetos.html">Projetos</a></li><li><a href="cadastro.html" aria-current="page">Seja Voluntário</a></li></ul></nav></header>
+<main id="conteudo" tabindex="-1">
+<h2>Seja um Voluntário</h2>
+<form id="formVol" novalidate aria-describedby="instrucoes">
+<p id="instrucoes">Todos os campos com * são obrigatórios. Use TAB para navegar.</p>
+
+<label for="nome">Nome completo *</label><input id="nome" name="nome" required aria-required="true" aria-describedby="erro-nome"><span id="erro-nome" class="erro" aria-live="polite"></span>
+
+<label for="email">E-mail *</label><input id="email" type="email" required aria-required="true" aria-describedby="erro-email"><span id="erro-email" class="erro" aria-live="polite"></span>
+
+<label for="area">Área de interesse *</label><select id="area" required aria-required="true" aria-describedby="erro-area"><option value="">Selecione</option><option>Educação</option><option>Saúde</option><option>Eventos</option></select><span id="erro-area" class="erro" aria-live="polite"></span>
+
+<label for="msg">Por que quer ajudar?</label><textarea id="msg" rows="4"></textarea>
+
+<button type="submit" style="margin-top:1rem;background:var(--amarelo);padding:12px 20px;font-weight:bold;border:0;cursor:pointer">Enviar cadastro</button>
+</form>
+<div id="toast" class="toast" role="status" aria-live="assertive" aria-atomic="true"></div>
+</main>
+<footer>ONG Mãos que Cuidam © 2026</footer>
+<script>
+const form=document.getElementById('formVol');const toast=document.getElementById('toast');
+form.addEventListener('submit',e=>{e.preventDefault();let ok=true;
+document.querySelectorAll('[required]').forEach(c=>{const err=document.getElementById('erro-'+c.id);if(!c.value.trim()){err.textContent='Campo obrigatório.';c.setAttribute('aria-invalid','true');if(ok){c.focus();ok=false}}else{err.textContent='';c.removeAttribute('aria-invalid')}});
+if(ok){toast.textContent='Cadastro enviado com sucesso! Obrigado por se voluntariar.';toast.style.display='block';setTimeout(()=>toast.style.display='none',4000);form.reset()}});
+</script>
+</body>
+</html>

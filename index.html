@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONG Mãos que Cuidam - Início</title>
+<style>
+  :root{--verde:#2E7D32;--amarelo:#FFC107;--foco:#005FCC}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+ .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;background:var(--verde);color:#fff;padding:8px;z-index:9999}
+ .skip-link:focus{left:10px;top:10px;width:auto;height:auto}
+  :focus-visible{outline:3px solid var(--foco);outline-offset:3px}
+  header{background:var(--verde);color:#fff;padding:1rem;display:flex;justify-content:space-between;align-items:center}
+  nav ul{list-style:none;display:flex;gap:1rem}
+  nav a{color:#fff;text-decoration:none;font-weight:bold;padding:6px}
+  #btn-menu{display:none;background:var(--amarelo);border:0;padding:8px 12px;font-weight:bold;cursor:pointer}
+  main{padding:2rem}
+ .hero{background:#E8F5E9;padding:2rem;border-left:6px solid var(--verde);margin-bottom:2rem}
+ .btn{background:var(--amarelo);color:#000;padding:12px 20px;text-decoration:none;font-weight:bold;border:0;cursor:pointer;display:inline-block;margin-top:1rem}
+  footer{background:#222;color:#fff;text-align:center;padding:1rem;margin-top:2rem}
+  @media(max-width:700px){#btn-menu{display:block} nav ul{display:none;flex-direction:column;background:var(--verde);position:absolute;top:60px;left:0;width:100%;padding:1rem} nav ul.aberto{display:flex}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+<header>
+  <h1>Mãos que Cuidam</h1>
+  <button id="btn-menu" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu-principal">☰ Menu</button>
+  <nav aria-label="Navegação principal"><ul id="menu-principal"><li><a href="index.html" aria-current="page">Início</a></li><li><a href="projetos.html">Projetos</a></li><li><a href="cadastro.html">Seja Voluntário</a></li></ul></nav>
+</header>
+<main id="conteudo" tabindex="-1">
+  <section class="hero"><h2>Transformando vidas com amor</h2><p>Somos uma ONG dedicada a cuidar de quem mais precisa. Navegue usando a tecla TAB.</p><a class="btn" href="projetos.html">Conheça nossos projetos</a></section>
+  <section><h2>Nossa Missão</h2><p>Promover dignidade e esperança através de ações sociais acessíveis a todos.</p></section>
+</main>
+<footer><p>ONG Mãos que Cuidam © 2026</p></footer>
+<script>
+const btn=document.getElementById('btn-menu');const menu=document.getElementById('menu-principal');
+btn.addEventListener('click',()=>{const aberto=menu.classList.toggle('aberto');btn.setAttribute('aria-expanded',aberto);btn.setAttribute('aria-label',aberto?'Fechar menu':'Abrir menu')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('aberto')){menu.classList.remove('aberto');btn.setAttribute('aria-expanded','false');btn.focus()}});
+</script>
+</body>
+</html>
